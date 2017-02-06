@@ -1,0 +1,2 @@
+* Scripts for work
+These are a few scripts that I use to automate some boring tasks at work, such as automatic code generation or static analysis of code.
