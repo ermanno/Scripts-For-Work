@@ -14,12 +14,12 @@ img_height = 100
 watermark_width = 553
 watermark_height = 726
 
-watermark_width_without_borders = watermark_width - 2 * current_x
-watermark_height_witohut_borders = watermark_height - 2 * current_y
-num_of_columns = watermark_width_without_borders / img_width
-num_of_rows = watermark_height_witohut_borders / img_height
-interval_width = watermark_width_without_borders - img_width * (num_of_columns - 1)
-interval_height = watermark_height_witohut_borders - img_height * (num_of_rows - 1)
+watermark_width_no_borders = watermark_width - 2 * current_x
+watermark_height_no_borders = watermark_height - 2 * current_y
+num_of_columns = watermark_width_no_borders / img_width
+num_of_rows = watermark_height_no_borders / img_height
+interval_width = watermark_width_no_borders - img_width * (num_of_columns - 1)
+interval_height = watermark_height_no_borders - img_height * (num_of_rows - 1)
 
 def get_next_x(current_x):
     return current_x + img_width + interval_width
