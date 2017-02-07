@@ -7,10 +7,12 @@ image_code_snippet = """
 </image>
 """
 
-current_x = 10
-current_y = 10
-img_width = 100
-img_height = 100
+current_x = 2
+current_y = 2
+buffer_x = 2
+buffer_y = 4
+img_width = 50
+img_height = 50
 watermark_width = 553
 watermark_height = 726
 
@@ -28,17 +30,19 @@ def next_x(x):
     return x + img_width + interval_width
 
 def print_column(x, y):
-    while y + img_height < watermark_height_no_borders:
+    while y + img_height <= watermark_height_no_borders:
         print image_code_snippet.format(x, y, img_width, img_height)
         y = next_y(y)
 
 def print_jasper_code(x, y):
-    while x + img_width < watermark_width_no_borders:
+    while x + img_width <= watermark_width_no_borders:
         print_column(x, y)
         x = next_x(x)
+        # print 'x: {}'.format(x)
+        # print 'sum: {}'.format(x + img_width)
 
 def main():
-    print_jasper_code(current_x, current_y)
+    print_jasper_code(current_x + buffer_x, current_y + buffer_y)
 
 if __name__ == '__main__':
     main()
