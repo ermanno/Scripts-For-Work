@@ -25,7 +25,7 @@ img_height = 50
 
 ## -- data for landscape
 buffer_x = 0
-buffer_y = 2
+buffer_y = 3
 watermark_width = 800
 watermark_height = 479
 
