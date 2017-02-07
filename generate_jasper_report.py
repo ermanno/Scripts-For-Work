@@ -12,10 +12,10 @@ image_code_snippet = """
 </image>
 """
 
-current_x = 2
-current_y = 2
+current_x = 0
+current_y = 0
 buffer_x = 2
-buffer_y = 4
+buffer_y = 0
 img_width = 50
 img_height = 50
 watermark_width = 553
