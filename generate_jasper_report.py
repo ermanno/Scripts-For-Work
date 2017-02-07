@@ -45,15 +45,13 @@ def print_column(x, y):
     while y + img_height <= watermark_height_no_borders:
         print image_code_snippet.format(x, y, img_width, img_height)
         y = next_y(y)
-        logger.info('y: {}'.format(y))
-        logger.info('Test y: {}'.format(y + img_width))
+        logger.info('y: {}; test y: {}'.format(y, y + img_width))
         
 def print_jasper_code(x, y):
     while x + img_width <= watermark_width_no_borders:
         print_column(x, y)
         x = next_x(x)
-        logger.info('x: {}'.format(x))
-        logger.info('Test x: {}'.format(x + img_width))
+        logger.info('x: {}; test x: {}'.format(x, x + img_width))
 
 def main():
     print_jasper_code(current_x + buffer_x, current_y + buffer_y)
