@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 image_code_snippet = """
 <image hAlign="Center">
 <reportElement mode="Opaque" x="{}" y="{}" width="{}" height="{}"/>
@@ -23,6 +28,13 @@ num_of_rows = watermark_height_no_borders / img_height
 interval_width = (watermark_width_no_borders - img_width * num_of_columns) / (num_of_columns - 1)
 interval_height = (watermark_height_no_borders - img_height * num_of_rows) / (num_of_rows - 1)
 
+logger.info('Watermark width no borders = {}'.format(watermark_width - 2 * current_x))
+logger.info('Watermark height no borders = {}'.format(watermark_height - 2 * current_y))
+logger.info('Number of columns = {}'.format(watermark_width_no_borders / img_width))
+logger.info('Number of rows = {}'.format(watermark_height_no_borders / img_height))
+logger.info('Interval width = {}'.format((watermark_width_no_borders - img_width * num_of_columns) / (num_of_columns - 1)))
+logger.info('Interval height = {}'.format((watermark_height_no_borders - img_height * num_of_rows) / (num_of_rows - 1)))
+
 def next_y(y):
     return y + img_height + interval_height
 
@@ -33,13 +45,15 @@ def print_column(x, y):
     while y + img_height <= watermark_height_no_borders:
         print image_code_snippet.format(x, y, img_width, img_height)
         y = next_y(y)
-
+        logger.info('y: {}'.format(y))
+        logger.info('Test y: {}'.format(y + img_width))
+        
 def print_jasper_code(x, y):
     while x + img_width <= watermark_width_no_borders:
         print_column(x, y)
         x = next_x(x)
-        # print 'x: {}'.format(x)
-        # print 'sum: {}'.format(x + img_width)
+        logger.info('x: {}'.format(x))
+        logger.info('Test x: {}'.format(x + img_width))
 
 def main():
     print_jasper_code(current_x + buffer_x, current_y + buffer_y)
