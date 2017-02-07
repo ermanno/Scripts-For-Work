@@ -3,7 +3,7 @@
 image_code_snippet = """
 <image hAlign="Center">
 <reportElement mode="Opaque" x="{}" y="{}" width="{}" height="{}"/>
-<imageExpression><![CDATA[$P{watermark}]]></imageExpression>
+<imageExpression><![CDATA[$P{{watermark}}]]></imageExpression>
 </image>
 """
 
@@ -26,3 +26,25 @@ def get_next_x(current_x):
 
 def get_next_y(current_y):
     return current_x + img_height + interval_width
+
+def next_y(y):
+    return y + img_height + interval_height
+
+def next_x(x):
+    return x + img_width + interval_width
+
+def print_column(x, y):
+    while y + img_height < watermark_height_no_borders:
+        print image_code_snippet.format(x, y, img_width, img_height)
+        y = next_y(y)
+
+def print_jasper_code(x, y):
+    while x + img_width < watermark_width_no_borders:
+        print_column(x, y)
+        x = next_x(x)
+
+def main():
+    print_jasper_code(current_x, current_y)
+
+if __name__ == '__main__':
+    main()
