@@ -18,16 +18,16 @@ img_width = 50
 img_height = 50
 
 ## -- data for portrait
-# buffer_x = 2
-# buffer_y = 0
-# watermark_width = 553
-# watermark_height = 726
+buffer_x = 1
+buffer_y = 0
+watermark_width = 553
+watermark_height = 726
 
 ## -- data for landscape
-buffer_x = 0
-buffer_y = 3
-watermark_width = 800
-watermark_height = 479
+# buffer_x = 0
+# buffer_y = 3
+# watermark_width = 800
+# watermark_height = 479
 
 watermark_width_no_borders = watermark_width - 2 * current_x
 watermark_height_no_borders = watermark_height - 2 * current_y
